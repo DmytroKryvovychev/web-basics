@@ -1,0 +1,28 @@
+
+<form #dogForm="ngForm" (ngSubmit)="onSubmit(dogForm.value)">
+  <p >New dog's name:</p>
+  <input name="name" type="text" [(ngModel)]="name">
+  <p >New dog's age:</p>
+  <input name="age" type="number" [(ngModel)]="age">
+  <button type="submit">Add</button>
+</form>
+
+
+<p *ngIf="!dogs"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="dogs">
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dog of dogs">
+      <td>{{ dog.id }}</td>
+      <td>{{ dog.name }}</td>
+      <td>{{ dog.age }}</td>
+    </tr>
+  </tbody>
+</table>
